@@ -7,10 +7,10 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-  res.render('home')
+  res.render('main')
 })
-app.get('/filter', (req, res) => {
-    res.render('filter')
+app.get('/about', (req, res) => {
+    res.render('about')
   })
 
 app.listen(port, () => {
