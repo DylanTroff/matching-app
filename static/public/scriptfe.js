@@ -5,4 +5,5 @@ toggleButton.addEventListener('click', klikken)
 
 function klikken(){
     navbarLinks.classList.toggle('active')
+    console.log("er is geklikt")
 }

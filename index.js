@@ -1,13 +1,13 @@
 const express = require('express')
-const app = express()
 const exphbs = require('express-handlebars');
+const app = express()
 const port = 3000
 
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
+app.engine('hbs', exphbs());
+app.set('view engine', 'hbs');
 
 app.get('/', (req, res) => {
-  res.render('main')
+  res.render('home')
 })
 app.get('/about', (req, res) => {
     res.render('about')
