@@ -8,7 +8,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: courier new;
-    background: grey;
+    background: rgb(133, 160, 120);
     height: 100%;
 }
 
@@ -61,3 +61,68 @@ body{
     height: 4em;
 }
 
+.profielfoto{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+section img{
+    position: relative;
+    max-width: 90%;
+    top: 3em;
+    border-radius: 10%;
+}
+
+section:first-of-type p{
+    position: relative;
+    z-index: 3;
+    top: 1.2em;
+    font-size: 1.3em;
+}
+
+section:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+}
+
+section:nth-of-type(2) p:nth-of-type(1){
+    position: relative;
+    font-size: 1.6em;
+    left: 7%;
+}
+
+section:nth-of-type(2) p:nth-of-type(2){
+    position: relative;
+    top: -2.5em;
+    left: 7%;
+}
+
+article{
+    position: relative;
+    left: 5%;
+    max-width: 90%;
+    top: -2em;
+    font-size: 1.2em;
+}
+
+section:nth-of-type(3) .up{
+    position: relative;
+    top: -1em;
+    left: 70%;
+    max-width: 18%;
+    border:solid .1em green;
+    border-radius: 60%;
+    background-color: green;
+}
+
+section:nth-of-type(3) .down{
+    position: relative;
+    top: -1em;
+    right: 10%;
+    max-width: 18%;
+    border:solid .1em red;
+    border-radius: 60%;
+    background-color:red;
+    transform: rotate(180deg);
+}
