@@ -1,4 +1,4 @@
-![](Images/Banner_github.pdf)
+<img align="center" src"https://github.com/DylanTroff/matching-app/blob/main/Images/Banner_github.pdf"/>
 
 # matching-app
 
