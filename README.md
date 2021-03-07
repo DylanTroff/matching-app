@@ -1,4 +1,4 @@
-<img align="center" src="https://raw.githubusercontent.com/DylanTroff/matching-app/Images/Banner_github.pdf"/>
+<img align="center" src="https://raw.githubusercontent.com/DylanTroff/matching-app/main/Images/Banner_github.pdf>
 
 # matching-app
 
