@@ -18,5 +18,11 @@ Met de app vind je snel en makkelijk een partner om tegen te spelen. Dit werkt v
 ## Documentation
 De documententatie van mijn onderzoek en ontwikkelingen in dit project kunt u vinden in de wiki! => [Wiki](https://github.com/DylanTroff/matching-app/wiki)
 
+## Installing
+Clone de repository naar jou eigen computer.
+```
+Git clone https://github.com/DylanTroff/matching-app
+```
+
 ## Lisence
 [Apache lisence](https://github.com/DylanTroff/matching-app/blob/main/LICENSE)
