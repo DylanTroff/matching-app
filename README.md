@@ -1,5 +1,4 @@
-<img align="center" src="https://raw.githubusercontent.com/DylanTroff/matching-app/main/Images/Banner_github.pdf>
-
+# <img src="Images/Banner_github.pdf" width="100%" alt="banner">
 # matching-app
 
 ## About
