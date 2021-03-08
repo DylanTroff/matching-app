@@ -1,10 +1,10 @@
 # <img src="Images/Banner_github.svg" width="100%" alt="banner">
-# matching-app
 
-## About
-An app that helps you find a sport buddy!
+## Table of Content
+* [about](#about)
+* [Documentation](#documentation)
 
-## Wiki
+## Documentation
 [Wiki](https://github.com/DylanTroff/matching-app/wiki)
 
 ## Lisence
