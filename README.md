@@ -9,9 +9,9 @@
 
 ## About
 De sport-buddy app is er voor mensen die in deze tijd graag samen met iemand hun geliefde sport beoefenen.
-Met de app vind je snel de juiste partner om een potje mee te 
-* Tennissen🎾 
-* Voetballen⚽️ 
+Met de app vind je snel en makkelijk een partner om tegen te spelen. Dit werkt voor heel veel verschillende soorten sport!
+* Tennis🎾 
+* Voetbal⚽️ 
 * Darten 🎯
 * en nog veel meer sporten! 🤩
 
