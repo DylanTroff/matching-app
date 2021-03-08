@@ -1,4 +1,4 @@
-# <img src="Images/Banner_github.pdf" width="100%" alt="banner">
+# <img src="Images/Banner_github.svg" width="100%" alt="banner">
 # matching-app
 
 ## About
