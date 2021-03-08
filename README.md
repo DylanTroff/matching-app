@@ -23,6 +23,14 @@ Clone de repository naar jou eigen computer.
 ```
 Git clone https://github.com/DylanTroff/matching-app
 ```
+Installeer de packages die nodig zijn.
+```
+npm install
+```
+Launch de app op een lokale server.
+```
+npm start
+```
 
 ## Lisence
 [Apache lisence](https://github.com/DylanTroff/matching-app/blob/main/LICENSE)
