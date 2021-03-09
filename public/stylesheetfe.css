@@ -13,6 +13,9 @@ body{
 }
 
 .navbar{
+    position: fixed;
+    z-index: 10;
+    width:100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,7 +30,7 @@ body{
 
 .navbar-links {
     display: none;
-    width: 100%
+    width: 100%;
 }
 
 .navbar {
@@ -38,10 +41,11 @@ body{
     width: 100%;
     flex-direction: column;
     text-decoration: none;
+    list-style-type: none;
 }
 
 .navbar-links li {
-    text-align: center;
+    text-align: left;
 }
 
 .navbar-links li a {
@@ -69,15 +73,15 @@ body{
 
 section img{
     position: relative;
-    max-width: 90%;
-    top: 3em;
+    max-width: 85%;
+    top: 5em;
     border-radius: 10%;
 }
 
 section:first-of-type p{
     position: relative;
     z-index: 3;
-    top: 1.2em;
+    top: 3em;
     font-size: 1.3em;
 }
 
@@ -125,4 +129,8 @@ section:nth-of-type(3) .down{
     border-radius: 60%;
     background-color:red;
     transform: rotate(180deg);
+}
+
+.headerList{
+    font-weight: bold;
 }

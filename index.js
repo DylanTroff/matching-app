@@ -3,11 +3,18 @@ const exphbs = require('express-handlebars');
 const app = express();
 const port = 3000;
 
+const profiel = {
+  name:'Arie',
+  age: '23',
+}
+
 app.engine('handlebars', exphbs({
   defaultLayout:'main',
   layoutsDir:'views/layouts',
 }),
 );
+app.use(express.static('public'));
+
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
@@ -23,7 +30,4 @@ app.listen(port, () => {
 
 app.use(express.static('public'));
 
-const profiel = [{
-  name:"Arie",
-  age: "23"
-}]
+
