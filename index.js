@@ -32,6 +32,11 @@ app.get('/home', (req, res) => {
 app.get('/', (req, res) => {
   res.render('login', {title:'Login'})
 });
+
+app.post('/', (req, res) => {
+  res.render('home', {title:'Home',profiel});
+});
+
 app.get('/about', (req, res) => {
     res.render('about',{title:'about', profielVrouw})
   });
