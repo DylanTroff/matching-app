@@ -3,22 +3,36 @@
         <img class="toggle-button" src="Images/Unknown.png" alt="">
 
         <section class="navbar-links">
-            <ul>
-                <h2>Filter menu</h2>
-                <li class="headerList">Sport</li>
-                <li><input type="radio" id="tennis" name="sport"><label for="tennis">Tennis</label></li>
-                <li><input type="radio" id="voetbal" name="sport"><label for="voetbal">Voetbal</label></li>
-                <li><input type="radio" id="darten" name="sport" checked="checked"><label for="darten">Darten</label></li><br>
-                <li class="headerList">Leeftijd</li>
-                <li><input type="radio" id="18-30" name="leeftijd" checked="checked"><label for="18-30">18-30</label></li>
-                <li><input type="radio" id="31+" name="leeftijd"><label for="31+">31+</label></li>
-                <li><input type="radio" id="geen_voorkeur" name="leeftijd"><label for="geen_voorkeur">Geen voorkeur</label></li><br>
-                <li class="headerList">Niveau</li>
-                <li><input type="radio" id="beginner" name="niveau"><label for="beginner">Beginner</label></li>
-                <li><input type="radio" id="gemiddeld" name="niveau"><label for="gemiddeld">Gemiddeld</label></li>
-                <li><input type="radio" id="goed" name="niveau" checked="checked"><label for="goed">Goed</label></li>
-                <li><input type="radio" id="pro" name="niveau"><label for="pro">Pro</label></li>
-            </ul>
+            <div class="sport">
+            <label for="sport">Sportvoorkeur:</label>
+            <select id="sport" name="sport">
+                <option selected value="{{profiel.sport}}">{{profiel.sport}}</option>
+                <option value="voetbal">Voetbal</option>
+                <option value="darten">Darten</option>
+                <option value="tennis">Tennis</option>
+            </select>
+        </div>
+
+        <div class="leeftijd">
+            <label for="leeftijd">Leeftijd:</label>
+            <select id="leeftijd" name="leeftijd">
+                <option selected value="{{profiel.leeftijd}}">{{profiel.leeftijd}}</option>
+                <option value="18-30">18-30</option>
+                <option value="30-65">30-65</option>
+                <option value="65+">65+</option>
+            </select>
+        </div>
+
+        <div class="niveau">
+            <label for="niveau">Niveau:</label>
+            <select id="niveau" name="niveau">
+                <option selected value="{{profiel.niveau}}">{{profiel.niveau}}</option>
+                <option value="beginner">Beginner</option>
+                <option value="goed">Goed</option>
+                <option value="heel goed">Heel goed</option>
+            </select>
+        </div>
+        <button type="submit" value="voorkeur">Voorkeur aanpassen</button>
         </section>
         
     </nav>

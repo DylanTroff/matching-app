@@ -59,6 +59,7 @@ body{
 
 .navbar-links.active{
     display: flex;
+    flex-direction: column;
 }
 
 .toggle-button{
@@ -195,7 +196,18 @@ section:nth-of-type(3) .down{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 1em 2em;
+    padding: .5em 1em;
+    border-radius: 5%;
+    border:.1em solid lightgray;
+  }
+
+  .loginpagina select{
+    position: relative;
+    top: -4em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: .5em 1em;
     border-radius: 5%;
     border:.1em solid lightgray;
   }
@@ -204,7 +216,7 @@ section:nth-of-type(3) .down{
     position: relative;
     top: -4em;
     display: block;
-    margin: 3em 0em 0em 0em;
+    margin: 2em 0em 0em 0em;
     text-align: center;
     font-family: lato, sans-serif;
 }
@@ -239,4 +251,11 @@ section:nth-of-type(3) .down{
 
 .noJsList.active{
    display: none;
+}
+
+strong{
+    text-align: center;
+    margin: auto;
+    display: block;
+    padding: 0em 0em 1em 0em;
 }
