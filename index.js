@@ -14,7 +14,7 @@ const localStrategy = require('passport-local').Strategy;
 const flash = require('connect-flash');
 const session = require('express-session'); 
 const bcrypt = require('bcryptjs');
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 const profiel = {
   name:'Arie',
@@ -244,9 +244,9 @@ app.get('/about', (req, res) => {
     res.render('about',{title:'about', profielVrouw})
   });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-});
+  app.listen(PORT, () => {
+    console.log(`Gebruikte poort: ${PORT}!`)
+  });
 
 app.use(express.static('public'));
 
