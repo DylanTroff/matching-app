@@ -60,6 +60,7 @@ body{
 .navbar-links.active{
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .toggle-button{
@@ -80,6 +81,12 @@ body{
     justify-content: space-between;
     width: 4em;
     height: 4em;
+}
+
+.voorkeurknop{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* profiel */

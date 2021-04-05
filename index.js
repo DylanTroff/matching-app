@@ -5,7 +5,9 @@ if (process.env.NODE_ENV !== 'production'){
 const express = require('express')
 const exphbs = require('express-handlebars');
 const app = express();
+const {MongoClient} = require('mongodb');
 const {ObjectID} = require('mongodb');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport')
 const localStrategy = require('passport-local').Strategy;
@@ -35,7 +37,10 @@ app.engine('handlebars', exphbs({
 app.use(express.static('public'));
 app.set('view engine', 'handlebars');
 
+console.log(process.env.TESTVAR);
+
 app.use(express.urlencoded({ extended: false }));
+
 
 //Session gebruiken
 app.use(session({
@@ -57,6 +62,20 @@ passport.deserializeUser((id, done) => {
     done(err, user);
   });
 });
+
+function checkAuthenticated (req, res, next) {
+  if(req.isAuthenticated()){
+  return next()
+  }
+  res.redirect('/')
+  };
+
+function checkNotAuthenticated (req, res, next) {
+  if(req.isAuthenticated()){
+  res.redirect('/home');
+  };
+  next();
+};
 
 //flash
 app.use(flash());
@@ -85,7 +104,28 @@ const userSchema = new mongoose.Schema({
   }
 });
 
+const profielSchema = new mongoose.Schema({
+  profielName: {
+    type: String,
+    required: true
+  },
+  profielAge: {
+    type: String,
+    required: true
+  },
+  profielName: {
+    type: String,
+    required: true
+  },
+  profielInfo: {
+    type: String,
+    required: true
+  }
+});
+
+
 const userModel = mongoose.model('users', userSchema);
+const profielCollection = mongoose.model('profielen', profielSchema);
 const uri = process.env.DB_URI;
 
 mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
@@ -94,11 +134,7 @@ mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
 
 //Routes
 
-app.get('/home', (req, res) => {
-  res.render('home', {title:'Home',profiel})
-});
-
-app.get('/', (req, res) => {
+app.get('/', checkNotAuthenticated, (req, res) => {
   res.render('login', {title:'Login'})
 });
 
@@ -133,7 +169,7 @@ app.post('/', (req, res, next) => {
   })(req, res, next);
 });
 
-app.get('/registreer', (req, res) => {
+app.get('/registreer', checkNotAuthenticated, (req, res) => {
   res.render('registreer', {title:'Registreer'})
 });
 
@@ -198,6 +234,11 @@ app.post('/registreer', async (req, res) => {
         });
         }
 });
+
+app.get('/home', checkAuthenticated, (req, res) => {
+  res.render('home',{title:'home', profiel})
+});
+
 
 app.get('/about', (req, res) => {
     res.render('about',{title:'about', profielVrouw})
