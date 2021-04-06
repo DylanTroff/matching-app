@@ -31,5 +31,4 @@ npm start
 De maker van deze app is Dylan Troff
 
 ## Lisence
-[Apache lisence](https://github.com/DylanTroff/matching-app/blob/main/LICENSE)
 De [Apache lisence](https://github.com/DylanTroff/matching-app/blob/main/LICENSE) is van toepassing op deze app.
