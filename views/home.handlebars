@@ -1,19 +1,26 @@
 {{>header}}
- <section class="profielfoto">
-        <img src="{{profiel.img}}" alt="">
-        <p>Darts</p>
-    </section>
-    <section>
-        <p>{{profiel.name}}</p>
-        <p>{{profiel.age}} jaar</p>
-    </section>
-    <article>
-        <p>Hoi ik ben {{profiel.name}} en ben {{profiel.age}} jaar oud. 
-            Ik zoek een dart partner om gewoon lekker wat potjes tegen te gooien! 
-            Let me know! 
-        </p> 
-    </article>
 
+{{#if errors}}
+    {{#each errors}}
+        <strong>{{this.message}}</strong>
+    {{/each}}
+{{/if}}
+
+{{#each profielen}}
+ <section class="profielfoto">
+        <img src="{{profielImg}}" alt="">
+        <p>{{sport}}</p>
+</section>
+<section>
+        <p>{{profielName}}</p>
+        <p>{{profielAge}} jaar</p>
+</section>
+<article>
+    <p>Hoi ik ben {{profielName}} en ben {{profielAge}} jaar oud. 
+        Ik zoek een maatje voor de sport {{sport}}. Mijn niveau is {{niveau}}
+    </p> 
+</article>
+{{/each}}
     <section>
         <img class="up" src="Images/Thumps.png" alt="">
         <img class="down" src="Images/Thumps.png" alt="">
@@ -35,5 +42,4 @@
         <li><input type="radio" id="beginner" name="niveau"><label for="beginner">Beginner</label></li>
         <li><input type="radio" id="gemiddeld" name="niveau"><label for="gemiddeld">Gemiddeld</label></li>
         <li><input type="radio" id="goed" name="niveau"><label for="goed">Goed</label></li>
-        <li><input type="radio" id="pro" name="niveau"><label for="pro">Pro</label></li>
     </ul>

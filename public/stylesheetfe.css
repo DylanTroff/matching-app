@@ -119,12 +119,13 @@ section:nth-of-type(2) {
 section:nth-of-type(2) p:nth-of-type(1){
     position: relative;
     font-size: 1.6em;
+    top: 1em;
     left: 7%;
 }
 
 section:nth-of-type(2) p:nth-of-type(2){
     position: relative;
-    top: -2.5em;
+    top: -1.2em;
     left: 7%;
 }
 
@@ -262,7 +263,9 @@ section:nth-of-type(3) .down{
 
 strong{
     text-align: center;
+    position: relative;
+    top: -2em;
     margin: auto;
     display: block;
-    padding: 0em 0em 1em 0em;
+    padding: 0em 0em .5em 0em;
 }

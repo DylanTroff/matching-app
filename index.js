@@ -16,23 +16,18 @@ const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const PORT = process.env.PORT || 3000;
 
+app.engine('handlebars', exphbs({
+  defaultLayout:'main',
+  layoutsDir:'views/layouts',
+  }),
+);
+
 const profiel = {
   name:'Arie',
   age: '23',
   img:'Images/Amateur darter.jpg',
 }
 
-const profielVrouw = {
-  name:'Marjet',
-  age: '34',
-  img:'Images/marjet_dart.jpg',
-}
-
-app.engine('handlebars', exphbs({
-  defaultLayout:'main',
-  layoutsDir:'views/layouts',
-  }),
-);
 
 app.use(express.static('public'));
 app.set('view engine', 'handlebars');
@@ -113,19 +108,15 @@ const profielSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  profielName: {
+  profielImg: {
     type: String,
     required: true
-  },
-  profielInfo: {
-    type: String,
-    required: true
-  }
-});
+  }  
+},{collection:'profielen'});
 
 
 const userModel = mongoose.model('users', userSchema);
-const profielCollection = mongoose.model('profielen', profielSchema);
+const profielModel = mongoose.model('profielen', profielSchema);
 const uri = process.env.DB_URI;
 
 mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
@@ -145,7 +136,7 @@ app.post('/', (req, res, next) => {
       userModel.findOne({ username: username})
       .then(user => {
         if(!user){
-          return done(null, false, {message: 'Email bestaat nog niet'})
+          return done(null, false, {message: 'Gebruikersnaam bestaat nog niet'})
         }
   
         // Match Password
@@ -235,18 +226,45 @@ app.post('/registreer', async (req, res) => {
         }
 });
 
-app.get('/home', checkAuthenticated, (req, res) => {
-  res.render('home',{title:'home', profiel})
-});
-
+app.get('/home', checkAuthenticated, async (req, res) => {
+    await profielModel.find({})
+    
+    //  Filteren op profiel van ingelogde gebruiker
+    .where('sport').equals(req.session.user.sport)
+    .where('leeftijd').equals(req.session.user.leeftijd)
+    .where('niveau').equals(req.session.user.niveau)
+    
+    .lean()
+    // Execute zorgt ervoor dat de gefilterde vacatures in een callback worden meegegeven
+    .exec((err, profielen) => {
+      if (err) {
+        console.log(err);
+      } 
+      else {
+        //  Checkt of er uberhaupt een resultaat is op basis van voorkeuren
+        if (profielen.length === 0) {
+          //  Als er geen vacatures zijn wordt er een error aangemaakt
+          let errors = [];
+          errors.push({message:"Helaas er zijn geen matches gevonden :("});
+          res.render('home', { title: 'Een lijst met matches', errors});
+        } 
+        else {
+          // Rendert resultaat
+          res.render('home', { title: 'Een lijst met matches', profielen});
+          console.log(profielen)   
+        }
+      }
+    });
+  }
+);
 
 app.get('/about', (req, res) => {
     res.render('about',{title:'about', profielVrouw})
   });
 
   app.listen(PORT, () => {
-    console.log(`Gebruikte poort: ${PORT}!`)
-  });
+  console.log(`Gebruikte poort: ${PORT}!`)
+});
 
 app.use(express.static('public'));
 
